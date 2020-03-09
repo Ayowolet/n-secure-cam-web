@@ -315,7 +315,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 function postVideo(link) {
 	console.log("I am here");
 	var settings = {
-		"url": "https://sgnigeria.herokuapp.com/postVideo",
+		"url": "https://cors-anywhere.herokuapp.com/https://sgnigeria.herokuapp.com/postVideo",
 		"method": "POST",
 		"timeout": 0,
 		"headers": {
@@ -326,10 +326,11 @@ function postVideo(link) {
 	  
 	  $.ajax(settings).done(function (response) {
 		console.log(response);
+		if (response == "Success") {
+			window.location.replace("result.html");
+			return false;
+		}
 	  });
-
-	window.location.replace("result.html");
-	return false;
 }
 
 
